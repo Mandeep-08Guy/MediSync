@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --primary: #2563eb; /* Blue 600 - Default Professional Blue */
+  --primary-foreground: #ffffff;
+  --accent: #eff6ff; /* Blue 50 */
+  --accent-foreground: #1e40af; /* Blue 800 */
+  --bg-color: #f8fafc; /* Slate 50 */
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0; /* Slate 200 */
+}
+
+/* Theme Presets */
+/* Emerald */
+[data-theme="emerald"] {
+  --primary: #059669;
+  --accent: #ecfdf5;
+  --accent-foreground: #065f46;
+}
+[data-mode="dark"][data-theme="emerald"] {
+  --primary: #10b981;
+}
+
+/* Rose */
+[data-theme="rose"] {
+  --primary: #e11d48;
+  --accent: #fff1f2;
+  --accent-foreground: #9f1239;
+}
+[data-mode="dark"][data-theme="rose"] {
+  --primary: #fb7185;
+}
+
+/* Amber */
+[data-theme="amber"] {
+  --primary: #d97706;
+  --accent: #fffbeb;
+  --accent-foreground: #92400e;
+}
+[data-mode="dark"][data-theme="amber"] {
+  --primary: #fbbf24;
+}
+
+/* Indigo */
+[data-theme="indigo"] {
+  --primary: #4f46e5;
+  --accent: #eef2ff;
+  --accent-foreground: #3730a3;
+}
+[data-mode="dark"][data-theme="indigo"] {
+  --primary: #818cf8;
+}
+
+/* Violet */
+[data-theme="violet"] {
+  --primary: #7c3aed;
+  --accent: #f5f3ff;
+  --accent-foreground: #5b21b6;
+}
+[data-mode="dark"][data-theme="violet"] {
+  --primary: #a78bfa;
+}
+
+/* Cyan */
+[data-theme="cyan"] {
+  --primary: #0891b2;
+  --accent: #ecfeff;
+  --accent-foreground: #155e75;
+}
+[data-mode="dark"][data-theme="cyan"] {
+  --primary: #22d3ee;
+}
+
+/* Lime */
+[data-theme="lime"] {
+  --primary: #65a30d;
+  --accent: #f7fee7;
+  --accent-foreground: #3f6212;
+}
+[data-mode="dark"][data-theme="lime"] {
+  --primary: #a3e635;
+}
+
+/* Dark Mode Overrides (General) */
+[data-mode="dark"] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  color: #f1f5f9;
+}
+
+/* Override primary for dark mode default (Blue) if no theme set */
+[data-mode="dark"]:not([data-theme]), [data-mode="dark"][data-theme="light"] {
+  --primary: #3b82f6;
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100%;
+  font-family: var(--font-sans);
+}
+
+[data-mode="dark"] body {
+  color: #f1f5f9;
+}
+
+/* Base card style for consistent formal look */
+.card-formal {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.bg-primary { background-color: var(--primary); }
+.text-primary { color: var(--primary); }
+.bg-accent { background-color: var(--accent); }
+.text-accent { color: var(--accent-foreground); }
+.border-primary { border-color: var(--primary); }
+
+/* Timeline vertical line */
+.timeline-line {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-color);
+}

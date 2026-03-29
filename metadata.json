@@ -1,0 +1,9 @@
+{
+  "name": "MediSync",
+  "description": "A smart healthcare management system with Patient and Doctor portals, featuring OCR-based prescription management, drug interaction checking, and AI-driven health suggestions.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
